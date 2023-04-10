@@ -1,19 +1,12 @@
 import { React } from 'react';
 import './App.scss';
+import Button from './components/Button';
+import Table from './components/Table';
 
-const App = (context) => {
-	const { config: { colors }} = context;
-
-	return <div className="App">
-		<b><i>Ready To Start.</i></b><br/>
-		<button style={ { color: 'red' } }>Click Me!</button>
-		{colors.map((color) =>
-			<button
-				key={ color }
-				style={ { background: color } }
-			>{color}
-			</button>)}
-	</div>;
-};
+const App = (context) => <div className="App">
+	<b><i>Ready To Start.</i></b><br/>
+	<Button { ...context }/>
+	<Table/>
+</div>;
 
 export default App;
