@@ -6,7 +6,7 @@ import Table from './components/Table';
 const App = (context) => <div className="App">
 	<b><i>Ready To Start.</i></b><br/>
 	<Button { ...context }/>
-	<Table/>
+	<Table { ...context }/>
 </div>;
 
 export default App;

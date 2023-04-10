@@ -1,19 +1,25 @@
 import { React } from 'react';
 
-const Table = () =>
-	<table>
-		<tr>
-			<th>RollNumber</th>
-			<th>Name</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Ram</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>Anita</td>
-		</tr>
-	</table>;
+const Table = (context) => {
+	const { config: { markSheets, header }} = context;
+
+	return (
+		<table>
+			<thead>
+				<tr>
+					{header.map((heading) =>
+						<th key={ heading }>{heading}</th>)}
+				</tr>
+			</thead>
+			{markSheets.map((mark, i) =>
+				<tbody key={ i }>
+					<tr>
+						<td>{mark.name}</td>
+						<td>{mark.tamil}</td>
+						<td>{mark.english}</td>
+					</tr>
+				</tbody>)}
+		</table>);
+};
 
 export default Table;
