@@ -1,27 +1,33 @@
 import markSheetData from '../services/markSheetData';
 
 const passMark = 35;
-const getResultCount = (studentMarkSheets) =>
-	studentMarkSheets.reduce((acc, cur) => ({
+const getResultCount = (context) => {
+	const { data } = context;
+
+	data.reduce((acc, cur) => ({
 		countPass: cur.result === 'pass' ? acc.countPass + 1 : acc.countPass,
 		countFail: cur.result === 'fail' ? acc.countFail + 1 : acc.countFail,
 	}), { countPass: 0, countFail: 0 });
+};
 
-const getResult = (marks) => {
+const getResult = (context) => {
+	const { data } = context;
 	const result = Math.min(
-		Number(marks.tamil), Number(marks.english), Number(marks.maths),
-		Number(marks.science), Number(marks.social)
+		Number(data.tamil), Number(data.english), Number(data.maths),
+		Number(data.science), Number(data.social)
 
 	) > passMark
 		? 'pass'
 		: 'fail';
 
-	return { ...marks, result };
+	return { ...data, result };
 };
 
-const getRank = (totalMarks) => {
-	const sortedMarkSheets = totalMarks.sort((a, b) => b.total - a.total);
-	const studentResult = sortedMarkSheets.map(getResult);
+const getRank = (context) => {
+	const { data } = context;
+	const sortedMarkSheets = data.sort((a, b) => b.total - a.total);
+	const studentResult = sortedMarkSheets.map((markSheet) =>
+		getResult({ ...context, data: markSheet }));
 	const rank = studentResult.map((
 		student, index, array
 	) => ({
@@ -36,22 +42,28 @@ const getRank = (totalMarks) => {
 	return rank;
 };
 
-const getTotal = (marks) =>
-	Number(marks.tamil) + Number(marks.english)
-	+ Number(marks.maths) + Number(marks.science) + Number(marks.social);
+const getTotal = (context) => {
+	const { data } = context;
 
-const getSum = (studentMarkSheets) => {
-	const totalMarks = studentMarkSheets.map((sheet) => ({
+	return Number(data.tamil) + Number(data.english)
+	+ Number(data.maths) + Number(data.science) + Number(data.social);
+};
+
+const getSum = (context) => {
+	const { data } = context;
+	const totalMarks = data.map((sheet) => ({
 		...sheet,
-		total: getTotal(sheet),
+		total: getTotal({ ...context, data: sheet }),
 	}));
-	const rank = getRank(totalMarks);
 
-	getResultCount(rank);
+	const rank = getRank({ ...context, data: totalMarks });
+
+	getResultCount({ ...context, data: rank });
 
 	return rank;
 };
 
-const processMarkSheet = () => getSum(markSheetData);
+const processMarkSheet = (context) =>
+	getSum({ ...context, data: markSheetData });
 
 export default processMarkSheet;

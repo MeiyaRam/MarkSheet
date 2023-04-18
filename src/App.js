@@ -7,7 +7,7 @@ import processMarkSheet from './services/processMarkSheet';
 const App = (context) => <div className="App">
 	<b><i>Ready To Start.</i></b><br/>
 	<Button { ...context }/>
-	<Table { ...{ ...context, data: processMarkSheet() } }/>
+	<Table { ...{ ...context, data: processMarkSheet(context) } }/>
 </div>;
 
 export default App;
