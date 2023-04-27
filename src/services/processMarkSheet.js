@@ -1,4 +1,5 @@
 import markSheetData from '../services/markSheetData';
+const { map, reduce, values } = require('@laufire/utils/collection');
 
 const passMark = 35;
 const getResultCount = (context) => {
@@ -11,12 +12,9 @@ const getResultCount = (context) => {
 };
 
 const getResult = (context) => {
-	const { data } = context;
-	const result = Math.min(
-		Number(data.tamil), Number(data.english), Number(data.maths),
-		Number(data.science), Number(data.social)
-
-	) > passMark
+	const { data, config: { subjects }} = context;
+	const result = Math.min(...values(map(subjects, (subject, key) =>
+		data[key]))) > passMark
 		? 'pass'
 		: 'fail';
 
@@ -43,14 +41,18 @@ const getRank = (context) => {
 };
 
 const getTotal = (context) => {
-	const { data } = context;
+	const { data, config: { subjects }} = context;
 
-	return Number(data.tamil) + Number(data.english)
-	+ Number(data.maths) + Number(data.science) + Number(data.social);
+	return reduce(
+		subjects, (
+			acc, cur, key
+		) => acc + data[key], 0
+	);
 };
 
 const getSum = (context) => {
 	const { data } = context;
+
 	const totalMarks = data.map((sheet) => ({
 		...sheet,
 		total: getTotal({ ...context, data: sheet }),

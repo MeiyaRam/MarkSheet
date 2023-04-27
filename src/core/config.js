@@ -1,3 +1,11 @@
+const subjects = {
+	tamil: { title: 'Tamil' },
+	english: { title: 'English' },
+	maths: { title: 'Maths' },
+	science: { title: 'Science' },
+	social: { title: 'Social' },
+};
+
 const config = {
 	colors: ['red', 'green', 'blue', 'yellow'],
 
@@ -11,16 +19,14 @@ const config = {
 	markSheetData: {
 		rollno: { title: 'RollNumber' },
 		name: { title: 'Name' },
-		tamil: { title: 'Tamil' },
-		english: { title: 'English' },
-		maths: { title: 'Maths' },
-		science: { title: 'Science' },
-		social: { title: 'Social' },
+		...subjects,
 		total: { title: 'Total' },
 		result: { title: 'Result' },
 		rank: { title: 'Rank' },
-
 	},
+
+	subjects: subjects,
+
 };
 
 export default config;
