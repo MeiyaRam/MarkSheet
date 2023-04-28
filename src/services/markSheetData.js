@@ -1,6 +1,6 @@
 const markSheetData = [
 	{
-		rollno: 1,
+		rollNo: 1,
 		name: 'A',
 		tamil: 99,
 		english: 92,
@@ -9,7 +9,7 @@ const markSheetData = [
 		social: 93,
 	},
 	{
-		rollno: 2,
+		rollNo: 2,
 		name: 'B',
 		tamil: 92,
 		english: 21,
@@ -18,7 +18,7 @@ const markSheetData = [
 		social: 54,
 	},
 	{
-		rollno: 3,
+		rollNo: 3,
 		name: 'C',
 		tamil: 100,
 		english: 52,
@@ -27,7 +27,7 @@ const markSheetData = [
 		social: 71,
 	},
 	{
-		rollno: 4,
+		rollNo: 4,
 		name: 'D',
 		tamil: 66,
 		english: 76,
@@ -36,7 +36,7 @@ const markSheetData = [
 		social: 95,
 	},
 	{
-		rollno: 5,
+		rollNo: 5,
 		name: 'E',
 		tamil: 39,
 		english: 80,
@@ -45,7 +45,7 @@ const markSheetData = [
 		social: 44,
 	},
 	{
-		rollno: 6,
+		rollNo: 6,
 		name: 'F',
 		tamil: 70,
 		english: 93,
@@ -54,7 +54,7 @@ const markSheetData = [
 		social: 90,
 	},
 	{
-		rollno: 7,
+		rollNo: 7,
 		name: 'G',
 		tamil: 56,
 		english: 34,
@@ -63,7 +63,7 @@ const markSheetData = [
 		social: 36,
 	},
 	{
-		rollno: 8,
+		rollNo: 8,
 		name: 'H',
 		tamil: 71,
 		english: 97,
@@ -72,7 +72,7 @@ const markSheetData = [
 		social: 69,
 	},
 	{
-		rollno: 9,
+		rollNo: 9,
 		name: 'I',
 		tamil: 25,
 		english: 22,
@@ -81,7 +81,7 @@ const markSheetData = [
 		social: 39,
 	},
 	{
-		rollno: 10,
+		rollNo: 10,
 		name: 'J',
 		tamil: 91,
 		english: 52,
@@ -90,7 +90,7 @@ const markSheetData = [
 		social: 89,
 	},
 	{
-		rollno: 11,
+		rollNo: 11,
 		name: 'K',
 		tamil: 54,
 		english: 63,
@@ -99,7 +99,7 @@ const markSheetData = [
 		social: 68,
 	},
 	{
-		rollno: 12,
+		rollNo: 12,
 		name: 'L',
 		tamil: 51,
 		english: 71,
@@ -108,7 +108,7 @@ const markSheetData = [
 		social: 64,
 	},
 	{
-		rollno: 13,
+		rollNo: 13,
 		name: 'M',
 		tamil: 42,
 		english: 25,

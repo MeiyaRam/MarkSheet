@@ -17,7 +17,7 @@ const config = {
 	header: ['Name', 'Tamil', 'English'],
 
 	markSheetData: {
-		rollno: { title: 'RollNumber' },
+		rollNo: { title: 'RollNumber' },
 		name: { title: 'Name' },
 		...subjects,
 		total: { title: 'Total' },

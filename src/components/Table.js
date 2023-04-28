@@ -2,23 +2,18 @@ import { React } from 'react';
 const { map, values } = require('@laufire/utils/collection');
 
 const TableBody = (context) => {
-	const { data } = context;
+	const { data, config: { markSheetData }} = context;
 
 	return (
 		data.map((student, i) => {
 			const className = student.result === 'pass' ? 'pass' : 'fail';
 
-			return <tr key={ i }>
-				<td>{student.rollno}</td>
-				<td>{student.name}</td>
-				<td>{student.tamil}</td>
-				<td>{student.english}</td>
-				<td>{student.maths}</td>
-				<td>{student.science}</td>
-				<td>{student.social}</td><td>{student.total}</td>
-				<td className={ className }>{student.result}</td>
-				<td>{student.rank}</td>
-			</tr>;
+			return (
+				<tr key={ i }>
+					{values(map(markSheetData, (markSheet, key) =>
+						<td key={ key }>{student[key]}</td>))}
+				</tr>
+			);
 		}));
 };
 const Table = (context) => {
