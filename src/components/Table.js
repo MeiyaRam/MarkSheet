@@ -5,20 +5,21 @@ const TableBody = (context) => {
 	const { data } = context;
 
 	return (
-		data.map((student, i) =>
-			<tr key={ i }>
+		data.map((student, i) => {
+			const className = student.result === 'pass' ? 'pass' : 'fail';
+
+			return <tr key={ i }>
 				<td>{student.rollno}</td>
 				<td>{student.name}</td>
 				<td>{student.tamil}</td>
 				<td>{student.english}</td>
 				<td>{student.maths}</td>
 				<td>{student.science}</td>
-				<td>{student.social}</td>
-				<td>{student.total}</td>
-				<td>{student.result}</td>
+				<td>{student.social}</td><td>{student.total}</td>
+				<td className={ className }>{student.result}</td>
 				<td>{student.rank}</td>
-			</tr>)
-	);
+			</tr>;
+		}));
 };
 const Table = (context) => {
 	const { config: { markSheetData }} = context;
