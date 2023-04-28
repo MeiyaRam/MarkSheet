@@ -5,16 +5,22 @@ const TableBody = (context) => {
 	const { data, config: { markSheetData }} = context;
 
 	return (
-		data.map((student, i) => {
-			const className = student.result === 'pass' ? 'pass' : 'fail';
+		data.map((student, i) =>
 
-			return (
-				<tr key={ i }>
-					{values(map(markSheetData, (markSheet, key) =>
-						<td key={ key }>{student[key]}</td>))}
-				</tr>
-			);
-		}));
+			<tr key={ i }>
+				{values(map(markSheetData, (markSheet, key) => {
+					const className = key === 'result'
+						? student[key] === 'pass'
+							? 'pass'
+							: 'fail'
+						: '';
+
+					return (
+						<td key={ key } className={ className }>
+							{student[key]}
+						</td>);
+				}))}
+			</tr>));
 };
 const Table = (context) => {
 	const { config: { markSheetData }} = context;
