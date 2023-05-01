@@ -1,7 +1,6 @@
 import markSheetData from '../services/markSheetData';
 const { map, reduce, values } = require('@laufire/utils/collection');
 
-const passMark = 35;
 const getResultCount = (context) => {
 	const { data } = context;
 
@@ -12,7 +11,7 @@ const getResultCount = (context) => {
 };
 
 const getResult = (context) => {
-	const { data, config: { subjects }} = context;
+	const { data, config: { subjects, passMark }} = context;
 	const result = Math.min(...values(map(subjects, (subject, key) =>
 		data[key]))) > passMark
 		? 'pass'

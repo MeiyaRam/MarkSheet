@@ -7,6 +7,8 @@ const subjects = {
 };
 
 const config = {
+	passMark: 35,
+
 	colors: ['red', 'green', 'blue', 'yellow'],
 
 	markSheets: [
