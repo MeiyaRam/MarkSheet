@@ -1,10 +1,15 @@
 const actions = {
 
-	setRollNo: (context) =>
-		({ rollNo: context.data }),
+	setMarkSheetInput: ({ state: { markSheet }, data: { label, value }}) =>
+		({
+			markSheet: {
+				...markSheet,
+				[label]: value,
+			},
+		}),
 
-	setName: (context) =>
-		({ name: context.data }),
+	setMarkSheets: ({ state: { markSheet, markSheets }}) =>
+		({ markSheets: [...markSheets, { ...markSheet }] }),
 
 };
 
