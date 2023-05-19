@@ -1,5 +1,3 @@
-import { map } from '@laufire/utils/collection';
-
 const actions = {
 
 	setMarkSheetInput: ({ state: { markSheet }, data: { label, value }}) =>
@@ -10,9 +8,9 @@ const actions = {
 			},
 		}),
 
-	setMarkSheets: ({ state: { markSheet, markSheets }}) => ({
+	setMarkSheets: ({ state: { markSheet, markSheets }, seed }) => ({
 		markSheets: [...markSheets, { ...markSheet }],
-		markSheet: { ...map(markSheet, () => '') },
+		markSheet: seed.markSheet,
 	}),
 
 };
