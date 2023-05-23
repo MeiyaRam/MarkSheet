@@ -4,7 +4,10 @@ const actions = {
 		({
 			markSheet: {
 				...markSheet,
-				[label]: value,
+				[label]:
+				label === 'name' || label === 'rollNo'
+					? value
+					: Number(value),
 			},
 		}),
 

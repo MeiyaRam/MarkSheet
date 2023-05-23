@@ -1,4 +1,3 @@
-import markSheetData from '../services/markSheetData';
 const { map, reduce, values } = require('@laufire/utils/collection');
 
 const getResultCount = (context) => {
@@ -65,6 +64,6 @@ const getSum = (context) => {
 };
 
 const processMarkSheet = (context) =>
-	getSum({ ...context, data: markSheetData });
+	getSum({ ...context, data: context.state.markSheets });
 
 export default processMarkSheet;

@@ -1,21 +1,22 @@
+import { values, map } from '@laufire/utils/collection';
 import { React } from 'react';
 
 const TableInput = (context) => {
 	const {
-		actions, config: { markSheets }, state,
+		actions, config: { markSheetData }, state,
 	} = context;
 
 	return (
-		markSheets.map((label, i) =>
-			<div key={ i }>
-				<label>Enter Your {label} </label>
+		values(map(markSheetData, ({ title, type }, key) =>
+			<div key={ key }>
+				<label>Enter Your {title} </label>
 				<input
-					type="text"
-					value={ state.markSheet[label] }
-					onChange={ ({ target: { value }}) =>
-						actions.setMarkSheetInput({ label, value }) }
+					type={ type }
+					value={ state.markSheet[key] }
+					onChange={ ({ target: { value }}) => actions
+						.setMarkSheetInput({ label: key, value: value }) }
 				/>
-			</div>)
+			</div>))
 	);
 };
 

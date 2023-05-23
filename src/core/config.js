@@ -1,9 +1,9 @@
 const subjects = {
-	tamil: { title: 'Tamil' },
-	english: { title: 'English' },
-	maths: { title: 'Maths' },
-	science: { title: 'Science' },
-	social: { title: 'Social' },
+	tamil: { title: 'Tamil', type: 'number' },
+	english: { title: 'English', type: 'number' },
+	maths: { title: 'Maths', type: 'number' },
+	science: { title: 'Science', type: 'number' },
+	social: { title: 'Social', type: 'number' },
 };
 
 const config = {
@@ -23,9 +23,6 @@ const config = {
 	},
 
 	subjects: subjects,
-
-	markSheets:
-	['rollNo', 'name', 'tamil', 'english', 'maths', 'science', 'social'],
 
 };
 
