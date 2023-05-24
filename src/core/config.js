@@ -17,9 +17,9 @@ const config = {
 		rollNo: { title: 'RollNumber' },
 		name: { title: 'Name' },
 		...subjects,
-		total: { title: 'Total' },
-		result: { title: 'Result' },
-		rank: { title: 'Rank' },
+		total: { title: 'Total', style: { display: 'none' }},
+		result: { title: 'Result', style: { display: 'none' }},
+		rank: { title: 'Rank', style: { display: 'none' }},
 	},
 
 	subjects: subjects,
